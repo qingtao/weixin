@@ -129,6 +129,7 @@ type MessageHeader struct {
 type Request struct {
 	MessageHeader
 	MsgId        int64 // nolint
+	MsgID        int64 // nolint
 	Content      string
 	PicUrl       string // nolint
 	MediaId      string // nolint
