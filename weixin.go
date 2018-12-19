@@ -129,7 +129,6 @@ type MessageHeader struct {
 type Request struct {
 	MessageHeader
 	MsgId        int64 // nolint
-	MsgID        int64 // nolint
 	Content      string
 	PicUrl       string // nolint
 	MediaId      string // nolint
@@ -150,6 +149,38 @@ type Request struct {
 	Precision    float32
 	Recognition  string
 	Status       string
+	//
+	ScanCodeInfo ScanCodeInfo
+	//
+	SendPicsInfo SendPicsInfo
+	//
+	SendLocationInfo SendLocationInfo
+}
+
+type ScanCodeInfo struct {
+	ScanType   string
+	ScanResult string
+}
+
+type SendPicsInfo struct {
+	Count   int
+	PicList []PicInfo
+}
+
+type PicInfo struct {
+	Item PicItem
+}
+
+type PicItem struct {
+	PicMd5Sum string
+}
+
+type SendLocationInfo struct {
+	LocationX float32 `xml:"Location_X"`
+	LocationY float32 `xml:"Location_Y"`
+	Scale     float32
+	Label     string
+	Poiname   string
 }
 
 // Music is the response of music message.
