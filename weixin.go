@@ -168,7 +168,7 @@ type SendPicsInfo struct {
 }
 
 type PicInfo struct {
-	Item PicItem
+	Item PicItem `xml:"item"`
 }
 
 type PicItem struct {
