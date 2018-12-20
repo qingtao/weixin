@@ -167,12 +167,12 @@ type ScanCodeInfo struct {
 // SendPicsInfo button pic_photo_or_album message, pic_sysphoto or pic_weixin event
 type SendPicsInfo struct {
 	Count   int
-	PicList []PicInfo
+	PicList []PicItem `xml:"PicList>item"`
 }
 
-// PicInfo image
-type PicInfo struct {
-	PicMd5Sum string `xml:"item>PicMd5Sum"`
+// PicItem image md5sum
+type PicItem struct {
+	PicMd5Sum string `xml:"PicMd5Sum"`
 }
 
 // SendLocationInfo button location_select event
