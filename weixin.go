@@ -873,6 +873,7 @@ func (wx *Weixin) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		log.Println("Weixin receive message failed:", err)
 		http.Error(w, "", http.StatusBadRequest)
 	} else {
+		data = bytes.Replace(data, []byte(`"MsgID":`), []byte(`"MsgId":`), -1)
 		var msg Request
 		if err := xml.Unmarshal(data, &msg); err != nil {
 			log.Println("Weixin parse message failed:", err)
