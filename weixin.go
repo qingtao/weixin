@@ -149,32 +149,33 @@ type Request struct {
 	Precision    float32
 	Recognition  string
 	Status       string
-	//
+	// scancode info
 	ScanCodeInfo ScanCodeInfo
-	//
+	// image info
 	SendPicsInfo SendPicsInfo
-	//
+	// location info
 	SendLocationInfo SendLocationInfo
 }
 
+// ScanCodeInfo button scancode_push or scancode_waitmsg event
 type ScanCodeInfo struct {
+	// ScanType qrcode
 	ScanType   string
 	ScanResult string
 }
 
+// SendPicsInfo button pic_photo_or_album message, pic_sysphoto or pic_weixin event
 type SendPicsInfo struct {
 	Count   int
 	PicList []PicInfo
 }
 
+// PicInfo image
 type PicInfo struct {
-	Item PicItem `xml:"item"`
+	PicMd5Sum string `xml:"item>PicMd5Sum"`
 }
 
-type PicItem struct {
-	PicMd5Sum string
-}
-
+// SendLocationInfo button location_select event
 type SendLocationInfo struct {
 	LocationX float32 `xml:"Location_X"`
 	LocationY float32 `xml:"Location_Y"`
